@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-adv-refresher';
+  value = 0;
+
+  reset() {
+    this.value = 0;
+  }
+
+  incrementValue(diff: number) {
+    this.value += diff;
+  }
 }
