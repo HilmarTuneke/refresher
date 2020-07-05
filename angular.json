@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-adv-refresher"
+    }
+  },
+  "defaultProject": "ng-adv-refresher",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
