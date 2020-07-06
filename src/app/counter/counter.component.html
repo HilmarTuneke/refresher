@@ -1,17 +1,29 @@
 <h1>Counter</h1>
 
-<h2>Controls</h2>
+<h2>Component</h2>
 
 <p>
   <button (click)="incrementValue(1)">+1</button>
   <button (click)="incrementValue(10)">+10</button>
   <button (click)="incrementValue(100)">+100</button>
-  <button (click)="reset()">Reset</button>
+  <button (click)="resetValue()">Reset</button>
   <button (click)="incrementValue(-1)">-1</button>
   <button (click)="incrementValue(-10)">-10</button>
   <button (click)="incrementValue(-100)">-100</button>
 </p>
 
-<h2>Value</h2>
 <p>{{value}}</p>
+
+<h2>Store</h2>
+
+<p>
+  <button (click)="incrementStore(1)">+1</button>
+  <button (click)="incrementStore(10)">+10</button>
+  <button (click)="incrementStore(100)">+100</button>
+  <button (click)="resetStore()">Reset</button>
+  <button (click)="decrementStore(1)">-1</button>
+  <button (click)="decrementStore(10)">-10</button>
+  <button (click)="decrementStore(100)">-100</button>
+</p>
+
 <p>{{storeValue$ | async}}</p>

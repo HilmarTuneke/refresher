@@ -4,6 +4,7 @@ import {AppState} from "../reducers";
 import {tap} from "rxjs/operators";
 import {Observable} from "rxjs";
 import { selectCounterValue } from "./reducers/counter.selectors";
+import * as CounterActions from './reducers/counter.actions';
 
 @Component({
   selector: 'app-counter',
@@ -12,7 +13,7 @@ import { selectCounterValue } from "./reducers/counter.selectors";
 })
 export class CounterComponent implements OnInit {
 
-  value = 0;
+  value: number = 0;
 
   storeValue$: Observable<number> = this.store$.pipe(select(selectCounterValue), tap(console.log));
 
@@ -22,11 +23,21 @@ export class CounterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  reset() {
+  resetValue() {
     this.value = 0;
   }
 
   incrementValue(diff: number) {
     this.value += diff;
+  }
+
+  incrementStore(diff: number) {
+    this.store$.dispatch(CounterActions.increment({change: diff}))
+  }
+  decrementStore(diff: number) {
+    this.store$.dispatch(CounterActions.decrement({change: diff}))
+  }
+  resetStore() {
+    this.store$.dispatch(CounterActions.reset())
   }
 }

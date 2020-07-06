@@ -1,13 +1,7 @@
 import {
-  Action,
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer,
-  createReducer
+  Action, createReducer, on
 } from '@ngrx/store';
-import { environment } from '../../../environments/environment';
+import * as  CounterActions from './counter.actions'
 
 export const counterFeatureKey = 'counter';
 
@@ -15,16 +9,15 @@ export interface CounterState {
   value: number
 }
 
-export const reducers: ActionReducerMap<CounterState> = {
-  value: undefined
-};
-
 export const initialState: CounterState = {
   value: 0
 };
 
 const counterReducer = createReducer(
   initialState,
+  on(CounterActions.increment, (state: CounterState, { change }) => ({ ...state, value: state.value + change })),
+  on(CounterActions.decrement, (state: CounterState, { change }) => ({ ...state, value: state.value - change })),
+  on(CounterActions.reset, (state: CounterState) => ({ ...state, value: 0 }))
 );
 
 export function reducer(state: CounterState | undefined, action: Action) {
