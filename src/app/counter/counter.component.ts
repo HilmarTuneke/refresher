@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {select, Store} from "@ngrx/store";
-import {AppState} from "../reducers";
+import {AppState} from "../shared/appstate";
 import {tap} from "rxjs/operators";
 import {Observable} from "rxjs";
 import { selectCounterValue } from "./reducers/counter.selectors";
